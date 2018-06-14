@@ -16,10 +16,18 @@ First, I tried to change language from Japanese to Engilish.
 But I couldn't. Please forgive me.
 
 1. Click `create instance`.
+![](images/1.png)
+
 1. Select `Linux/Unix` platform. And select `Ubuntu`.
+![](images/2.png)
 1. Then click `create` button in the same page.
-1. After instance is ready, access ssh key page from link around bottom in connectin tab.
+![](images/3.png)
+
+1. After instance is ready, access ssh key page from link around bottom in connection tab.
+![](images/4.png)
+
 1. Click `Download` to get ssh private key.
+![](images/5.png)
 
 ## SSH connection
 In my case, the key file name is `LightsailDefaultPrivateKey-ap-northeast-1.pem`.
@@ -28,8 +36,9 @@ And to login by ssh, run these commands in client pc.
 `ssh ubuntu@your_public_ip -i LightsailDefaultPrivateKey-ap-northeast-1.pem`
 
 ## Change ssh port to 2200
-1. In firewall setting in the page, add new rule like this.
-`application: Custome, protocol: TCP, port range: 2200`
+1. In firewall setting in the page, add new custom rule like this.
+![](images/6.png)
+
 1. Change port in sshd_config file.
 `sudo vi /etc/ssh/sshd_config`
 ```diff
