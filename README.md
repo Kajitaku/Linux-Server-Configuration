@@ -46,6 +46,16 @@ And to login by ssh, run these commands in client pc.
 -Port 22
 +Port 2200
 ```
+
+## Disable login as root.
+`sudo vi /etc/ssh/sshd_config`
+```diff
+# Authentication:
+LoginGraceTime 120
+-PermitRootLogin prohibit-password
++PermitRootLogin no
+StrictModes yes
+```
 `sudo service ssh restart` to update change.
 
 ## Configure Firewall
@@ -183,3 +193,16 @@ If around bottom config in this file, a `ADDRESS` is global ip and `METHOD` is `
 
 ## All done!!
 Let's try to see [URL](http://13.231.224.90/).
+
+## Third-party resources
+Thank you for useful informations
+- [Connecting to Your Linux Instance Using SSH](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html)
+- [(Ubuntu Server) Changing SSH Port 22 to Port 2222](https://ubuntuforums.org/showthread.php?t=1591681)
+- [How to configure UFW to allow ntp to work?](https://askubuntu.com/questions/709843/how-to-configure-ufw-to-allow-ntp-to-work)
+- [How To Edit the Sudoers File on Ubuntu and CentOS](https://www.digitalocean.com/community/tutorials/how-to-edit-the-sudoers-file-on-ubuntu-and-centos)
+- [How do I change my timezone to UTC/GMT?](https://askubuntu.com/questions/138423/how-do-i-change-my-timezone-to-utc-gmt)
+- [Python locale error: unsupported locale setting](https://stackoverflow.com/questions/14547631/python-locale-error-unsupported-locale-setting)
+- [Pipで入れてる筈のパッケージで"ImportError: No module named …"とか言われたら](http://shuzo-kino.hateblo.jp/entry/2017/08/29/235104)
+- [Pmod_wsgi (Apache)](http://flask.pocoo.org/docs/1.0/deploying/mod_wsgi/)
+- [How To Secure PostgreSQL Against Automated Attacks)](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-against-automated-attacks)
+- [Cronjob error: not able to find client_secret.json file Google App Script)](https://stackoverflow.com/questions/45968143/cronjob-error-not-able-to-find-client-secret-json-file-google-app-script)
